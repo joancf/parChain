@@ -186,7 +186,7 @@ struct distAverage5: public distAbstract {
     }
   
   inline static void printName(){
-    cout << "distAverage5 point array, norm = 1, rebuild tree" << endl;
+    cout << "distAverage5 point array, norm = 1, rebuild tree 2" << endl;
   }
 
   distAverage5(pointT *t_PP, intT n, bool t_no_cache):PP(t_PP){
@@ -606,7 +606,7 @@ struct distCubicDummy: public distAbstract {
     }
   
   inline static void printName(){
-    cout << "distAverage5 point array, norm = 1, rebuild tree" << endl;
+    cout << "distAverage5 point array, norm = 1, rebuild tree 1" << endl;
   }
 
   distCubicDummy(pointT *t_PP, intT n, bool t_no_cache):PP(t_PP){

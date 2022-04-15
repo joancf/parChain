@@ -123,7 +123,7 @@ inline void zero_chain_debug(TF *finder, int round, CH* info){
         cout << cid << " " << finder->edges[cid].second << " " << std::setprecision(23) << finder->edges[cid].getW() << endl;
         cid = info->chain[cid];
     }
-    exit(1);
+    cout << "end zer_cain_debug" << endl ;exit(1);
 }
 
 // checking if chain is pointing to nearest neighbor

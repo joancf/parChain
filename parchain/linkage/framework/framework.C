@@ -103,9 +103,10 @@ UnionFind::ParUF<intT> *linkage(point<dim>* P, intT n, commandLine params, Union
   cout << "cache_size/2 = " <<  cache_size << endl;
 
   dendrogram::dendroLine* dendro;
+  cout << "starting dendro" << endl;
   if(method ==  "complete"){
       dendro = ChainTree::completeLinkage<dim, pointT>(P, n, uf, eps, naive_thresh, cache_size);
-  }else if(method ==  "ward"){
+  }else if(method ==  "ward"){  
       dendro = ChainTree::wardLinkage<dim, pointT>(P, n, uf, eps, naive_thresh, cache_size);
   }else if(method ==  "avg"){
       dendro = ChainTree::avgLinkage<dim, pointT>(P, n, uf, eps, naive_thresh, cache_size);
@@ -117,10 +118,9 @@ UnionFind::ParUF<intT> *linkage(point<dim>* P, intT n, commandLine params, Union
       cout << "invalid method" << endl;
       exit(1);
   }
+  cout << "ending dendro" << endl;
 
-  cout << std::fixed;
-  cout << std::setprecision(10);
-  UTIL::PrintFunctionItem("CLINK", "COST", uf->cost() );
+
 
   string output_dendro = params.getOptionValue("-dendro", "");
   cout << "output dendrogram to: " << output_dendro << endl;
@@ -133,7 +133,11 @@ UnionFind::ParUF<intT> *linkage(point<dim>* P, intT n, commandLine params, Union
       file_obj.close();
   }
   free(dendro);
-
+  
+  cout << std::fixed;
+  cout << std::setprecision(10);
+  UTIL::PrintFunctionItem("CLINK", "COST", uf->cost() );
+  
   return uf;
 }
 
@@ -148,7 +152,7 @@ template UnionFind::ParUF<int> *linkage<9>(point<9>*, intT, commandLine, UnionFi
 template UnionFind::ParUF<int> *linkage<10>(point<10>*, intT, commandLine, UnionFind::ParUF<intT> *);
 template UnionFind::ParUF<int> *linkage<16>(point<16>*, intT, commandLine, UnionFind::ParUF<intT> *);
 template UnionFind::ParUF<int> *linkage<128>(point<128>*, intT, commandLine, UnionFind::ParUF<intT> *);
-
+template UnionFind::ParUF<int> *linkage<768>(point<768>*, intT, commandLine, UnionFind::ParUF<intT> *);
 
 
 

@@ -331,7 +331,7 @@ inline void chain_linkage_matrix(TF *finder, timer t1){
     UTIL::PrintFunctionItem("CLINK", "Comp Num", finder->C);
     UTIL::PrintFunctionItem("Chain", "#", info->chainNum);}else{print = false;}
 #endif
-    if(round >= n)  exit(1);
+    if(round >= n) {cout << "chain matrixround" << round << ">=" << n << endl; exit(1);}
     chain_find_nn(chainNum, finder, info);
 #ifdef VERBOSE
 	if(print) UTIL::PrintSubtimer("find-nn", t1.next());

@@ -29,8 +29,9 @@ struct DM{
     timer t1;t1.start();
     // computation of condensed distance matrix
     distmat_size = (long)n*(n-1)/2;
+    std::cout << "distance matrix size" << distmat_size << std::endl;
     distmat = newA(double, distmat_size+1);//(double *)malloc(distmat_size * sizeof(double));//
-    
+     std::cout << "matrix createt"  << std::endl;
     if(sqFlag){
         parallel_for (intT i=0; i<n; i++) {
             parallel_for (intT j=i+1; j<n; j++) {
@@ -228,7 +229,7 @@ struct distAverage5: public distMatrixAbstract<dim, pointTT, nodeTT> {
   LDS::Method method = LDS::AVG;
 
   inline static void printName(){
-    cout << "distAverage5 point array, norm = 1, rebuild tree" << endl;
+    cout << "distAverage5 point array, norm = 1, rebuild tree dismatrix" << endl;
   }
 
   distAverage5(pointT *t_PP, intT t_n, bool t_use_range): distMatrixAbstract<dim, pointTT, nodeTT>(t_PP, t_n, t_use_range){

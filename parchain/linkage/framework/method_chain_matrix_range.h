@@ -426,7 +426,7 @@ inline void chain_linkage(TF *finder, timer t1){
     UTIL::PrintFunctionItem("CLINK", "Comp Num", finder->C);
     UTIL::PrintFunctionItem("Chain", "#", info->chainNum);}else{print = false;}
 #endif
-  if(round >= n)  exit(1);
+  if(round >= n)  {cout << "chain matrix range round" << round << ">=" << n << endl; exit(1);}
   if(round >= 2 && info->chainNum == 0) zero_chain_debug(finder, round, info); 
 
   if(round == 1){

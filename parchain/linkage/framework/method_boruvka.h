@@ -247,7 +247,7 @@ inline void boruvka_linkage(TF *finder, timer t1){
     UTIL::PrintFunctionItem("CLINK", "Comp Num", finder->C);}else{print = false;}
 #endif
     // TODO: add k-nn finding step?
-  if(round >= n)  exit(1);
+  if(round >= n)  {cout << "chain borovka round" << round << ">=" << n << endl; exit(1);}
     finder->findAllNN(round);
     // finder->findAllNNBruteForce();
 #ifdef VERBOSE

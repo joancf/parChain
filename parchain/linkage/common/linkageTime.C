@@ -118,6 +118,10 @@ int parallel_main(int argc, char* argv[]) {
     _seq<point<128>> PIn = readPointsFromFileNoHeader<point<128>>(iFile);
     timeLinkage<128>(PIn.A, PIn.n, rounds, oFile, P);
     PIn.del();
+  }  else if (dim == 768) {
+    _seq<point<768>> PIn = readPointsFromFileNoHeader<point<768>>(iFile);
+    timeLinkage<768>(PIn.A, PIn.n, rounds, oFile, P);
+    PIn.del();
   } else {
     cout << "dimension " << dim << " not yet supported, abort" << endl; abort();
   }
