@@ -21,8 +21,7 @@ if [[ -z "$FILE" ]]; then
 fi
 if [[ -z "$WORKERS" ]]; then
   echo "No workers defined,set to 2"
-  
-  exit
+  WORKERS ="2"
 fi  
 
 [ -d "outputs" ] || mkdir "outputs"
