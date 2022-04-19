@@ -36,12 +36,13 @@ g++ -v
 echo "entering parChain/parchain/linkage/framework"
 cd parchain/linkage/framework
 echo "compile PC... without clean"
-#make clean
+# make clean
 GCILK=1 make -j
 
 echo "bat to root parChain/parchain/linkage/framework"
 cd ../../../
 echo "run"
+echo "CILK_NWORKERS=$WORKERS numactl -i all ./parchain/linkage/framework/linkage -method avg -r 1 -d $DIMENSIONS -dendro ./outputs/${METHOD}/dendrogaram.txt  ./datasets/$FILE  > outputs/${METHOD}/test.txt"
 CILK_NWORKERS=$WORKERS numactl -i all ./parchain/linkage/framework/linkage -method avg -r 1 -d $DIMENSIONS -dendro ./outputs/${METHOD}/dendrogaram.txt  ./datasets/$FILE  > outputs/${METHOD}/test.txt
 if [ $? -eq 0 ] 
 then 
